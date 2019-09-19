@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-  Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
+  Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('admin.login');
   Route::post('/login', 'AdminAuth\LoginController@login');
-  Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
+  Route::post('/logout', 'AdminAuth\LoginController@logout')->name('admin.logout');
 
-  Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('admin.register');
   Route::post('/register', 'AdminAuth\RegisterController@register');
 });
 
