@@ -79,11 +79,6 @@
                                     <option value="retailer">Retailer</option>
                                     <option value="wholesaler">Wholesaler</option>
                                 </select>
-                                @error('type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -94,6 +89,10 @@
                                 </button>
                             </div>
                         </div>
+
+                        @if ($errors->any())
+                        {{ implode('', $errors->all(':message')) }}
+                        @endif
                     </form>
                 </div>
             </div>

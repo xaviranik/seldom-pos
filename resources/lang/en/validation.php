@@ -129,8 +129,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'type' => [
+            'required' => 'You need to specify the account type.',
         ],
     ],
 
