@@ -28,7 +28,7 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>ট150.00</h3>
+                        <h3>&#2547;150.00</h3>
 
                         <p>Today's Sales</p>
                     </div>
@@ -43,7 +43,7 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>ট91882.90</h3>
+                        <h3>&#2547;8452.00</h3>
 
                         <p>Last 30 Days Sales</p>
                     </div>
@@ -58,7 +58,7 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>ট6,51,520.00</h3>
+                        <h3>&#2547;61520.00</h3>
 
                         <p>Total Sales</p>
                     </div>
@@ -144,7 +144,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>ট150.00</h3>
+                            <h3>&#2547;150.00</h3>
 
                             <p>Today's Profit</p>
                         </div>
@@ -159,7 +159,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>ট91882.90</h3>
+                            <h3>&#2547;91882.90</h3>
 
                             <p>Last 30 Days Profit</p>
                         </div>
@@ -174,7 +174,7 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>ট6,51,520.00</h3>
+                            <h3>&#2547;6,51,520.00</h3>
 
                             <p>Total Profit</p>
                         </div>
