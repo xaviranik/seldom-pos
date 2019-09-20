@@ -25,3 +25,11 @@
 </section>
 <!-- /.content -->
 @endsection
+
+@section('datatable')
+    <script>
+        $(function () {
+            $("#datatable").DataTable();
+        });
+    </script>
+@endsection
