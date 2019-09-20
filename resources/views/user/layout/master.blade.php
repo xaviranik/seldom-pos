@@ -35,8 +35,8 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        Settings <i class="fas fa-chevron-down"></i>
+                    <a class="nav-link text-capitalize" data-toggle="dropdown" href="#">
+                        {{ auth()->guard('user')->user()->type }} <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
@@ -83,7 +83,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Shamim Hassan</a>
+                        <a href="#" class="d-block">{{ auth()->guard('user')->user()->name }}</a>
                     </div>
                 </div>
 
