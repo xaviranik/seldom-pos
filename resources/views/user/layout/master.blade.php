@@ -11,6 +11,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.css" />
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
@@ -49,7 +51,8 @@
                             <i class="fas fa-user mr-2"></i> Profile
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="{{route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        <a href="{{route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                             class="dropdown-item">
                             <i class="fas fa-sign-out-alt mr-2"></i> Logout
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -182,6 +185,9 @@
 
     <!-- REQUIRED SCRIPTS -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/plugins/dataTables.min.js') }}"></script>
+    
+    @yield('datatable')
 </body>
 
 </html>
