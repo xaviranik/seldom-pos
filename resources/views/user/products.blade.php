@@ -46,7 +46,10 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-header">
-                            <h5>Manage All Products</h5>
+                            <div class="d-flex justify-content-between">
+                                <h5>Manage All Products</h5>
+                                <a href="#" class="btn btn-primary">Add Product</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <table id="datatable" class="table table-bordered table-striped">
@@ -484,10 +487,13 @@
                 </div>
                 <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel"
                     aria-labelledby="custom-content-below-profile-tab">
-                                        <div class="card mb-0">
+                    <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-header">
-                            <h5>Manage All Categories</h5>
+                            <div class="d-flex justify-content-between">
+                                <h5>Manage All Categories</h5>
+                                <a href="#" class="btn btn-primary">Add Category</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <table id="datatable2" class="table table-bordered table-striped">
