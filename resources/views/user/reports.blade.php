@@ -61,8 +61,7 @@
                         <!-- /.card-header -->
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <h5>Manage All Products</h5>
-                                <a href="#" class="btn btn-primary">Add Product</a>
+                                <h5>Manage All Sales</h5>
                             </div>
                         </div>
                         <div class="card-body">
@@ -505,8 +504,7 @@
                         <!-- /.card-header -->
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <h5>Manage All Categories</h5>
-                                <a href="#" class="btn btn-primary">Add Category</a>
+                                <h5>Manage Sales Summary</h5>
                             </div>
                         </div>
                         <div class="card-body">
