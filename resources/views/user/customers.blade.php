@@ -41,7 +41,8 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
                                 <h5>Manage All Customers</h5>
-                                <a href="#" class="btn btn-primary">Add Customer</a>
+                                <a href="{{ route('user.customer.create') }}" class="btn btn-primary">Add
+                                    Customer</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -521,6 +522,54 @@
         </div>
         <!-- /.card -->
     </div>
+
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Customer</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- form start -->
+                    <form role="form">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Full Name</label>
+                                <input type="name" class="form-control" id="name" placeholder="Enter Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Contact Phone Number</label>
+                                <input type="phone" class="form-control" id="phone" placeholder="Enter Phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="address" class="form-control" id="address" placeholder="Enter Address">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Add New Customer</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </section>
 <!-- /.content -->
 @endsection

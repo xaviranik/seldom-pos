@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
@@ -24,7 +26,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.customer.create');
     }
 
     /**
@@ -35,7 +37,24 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:11',
+            'address' => 'required',
+        ]);
+
+        Customer::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'user_id' => auth()->user()->id
+        ]);
+
+        Session::flash('success', 'User added successfully!');
+
+        return redirect()->route('user.customers');
     }
 
     /**
