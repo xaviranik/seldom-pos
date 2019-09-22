@@ -35,15 +35,5 @@ Route::group(['prefix' => 'user'], function () {
   Route::post('/password/email', 'UserAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'UserAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'UserAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
-  Route::get('/password/reset/{token}', 'UserAuth\ResetPasswordController@showResetForm');
-
-  Route::group(['middleware' => ['user']], function () {
-    Route::get('/sales', 'UserController@showSalesPage')->name('user.sales');
-    Route::get('/receives', 'UserController@showReceivesPage')->name('user.receives');
-    Route::get('/products', 'UserController@showProductsPage')->name('user.products');
-    Route::get('/reports', 'UserController@showReportsPage')->name('user.reports');
-    Route::get('/customers', 'UserController@showCustomersPage')->name('user.customers');
-    Route::get('/settings', 'UserController@showSettingsPage')->name('user.settings');
-  });
-  
+  Route::get('/password/reset/{token}', 'UserAuth\ResetPasswordController@showResetForm');  
 });
