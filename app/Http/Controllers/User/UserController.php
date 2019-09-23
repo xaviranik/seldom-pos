@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -35,7 +37,8 @@ class UserController extends Controller
 
     public function showCustomersPage()
     {
-        return view('user.customers');
+        $customers = Customer::where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+        return view('user.customers', compact('customers'));
     }
 
     public function showSettingsPage()
