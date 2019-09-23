@@ -79,6 +79,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
+        $this->authorize('manage', $customer);
         return view('user.customer.edit', compact('customer'));
     }
 
@@ -89,9 +90,25 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Customer $customer)
     {
-        //
+        $this->authorize('manage', $customer);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:11',
+            'address' => 'required',
+        ]);
+
+        $customer->name = $request->name;
+        $customer->email = $request->email;
+        $customer->phone = $request->phone;
+        $customer->address = $request->address;
+        $customer->save();
+
+        Session::flash('success', 'User Updated!');
+        return redirect()->route('user.customers');
     }
 
     /**
@@ -100,8 +117,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        //
+        $this->authorize('manage', $customer);
+        $customer->delete();
+        return redirect()->route('user.customers');
     }
 }

@@ -49,7 +49,6 @@
                             <table id="datatable" class="table table-bordered table-striped table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        <th class="w-10">ID</th>
                                         <th class="w-25">Name</th>
                                         <th class="w-25">Email</th>
                                         <th class="w-10">Phone</th>
@@ -59,19 +58,27 @@
                                 </thead>
                                 <tbody>
                                     @forelse($customers as $customer)
-                                        <tr>
-                                            <td>{{ $customer->id }}</td>
-                                            <td>{{ $customer->name }}</td>
-                                            <td>{{ $customer->email }}</td>
-                                            <td>{{ $customer->phone }}</td>
-                                            <td>{{ $customer->address }}</td>
-                                            <td>
+                                    <tr>
+                                        <td>{{ $customer->name }}</td>
+                                        <td>{{ $customer->email }}</td>
+                                        <td>{{ $customer->phone }}</td>
+                                        <td>{{ $customer->address }}</td>
+                                        <td>
+                                            <form class="form-inline"
+                                                action="{{ route('user.customer.destroy', ['id' => $customer->id]) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
                                                 <div class="btn-group">
-                                                    <a href="{{ route('user.customer.edit', ['id' => $customer->id]) }}" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
-                                                    <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                                                    <a href="{{ route('user.customer.edit', ['id' => $customer->id]) }}"
+                                                        class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
+
+                                                    <button type="submit" class="btn btn-outline-danger"><i
+                                                            class="fas fa-trash"></i></button>
                                                 </div>
-                                            </td>
-                                        </tr>
+                                            </form>
+                                        </td>
+                                    </tr>
                                     @empty
                                     @endforelse
                                 </tbody>
