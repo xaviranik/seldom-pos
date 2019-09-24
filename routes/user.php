@@ -10,7 +10,7 @@ Route::get('/dashboard', function () {
     return view('user.home');
 })->name('home');
 
-Route::group(['middleware' => ['auth:user']], function () {
+Route::group(['middleware' => ['auth:user', 'activated']], function () {
     Route::get('/sales', 'User\UserController@showSalesPage')->name('sales');
     Route::get('/receives', 'User\UserController@showReceivesPage')->name('receives');
     Route::get('/products', 'User\UserController@showProductsPage')->name('products');

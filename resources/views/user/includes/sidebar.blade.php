@@ -23,7 +23,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item">
+                @if (auth()->guard('user')->user()->activation)
+                    <li class="nav-item">
                     <a href="{{ route('user.home') }}"
                         class="nav-link {{ Route::currentRouteNamed('user.home') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -84,9 +85,71 @@
                             Settings
                         </p>
                     </a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link {{ Route::currentRouteNamed('user.home') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link disabled text-muted">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Sales
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link disabled text-muted">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Recieves
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link disabled text-muted">
+                        <i class="nav-icon fas fa-box"></i>
+                        <p>
+                            Products
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link disabled text-muted">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Reports
+                        </p>
+                    </a>
 
-
-
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link disabled text-muted">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Customers</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link disabled text-muted">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Settings
+                        </p>
+                    </a>
+                </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
