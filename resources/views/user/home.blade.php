@@ -12,7 +12,7 @@
                     verified.
                 </div>
                 <div class="alert alert-danger" role="alert">
-                    If you have not completed your profile, please <a href="#">Click here</a>
+                    If you have not completed your profile, please <a href="{{ route('user.profile') }}">Click here</a>
                 </div>
             </div>
         </div>

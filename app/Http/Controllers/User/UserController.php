@@ -45,4 +45,10 @@ class UserController extends Controller
     {
         return view('user.settings');
     }
+
+    public function showProfilePage()
+    {
+        $user = auth()->guard('user')->user();
+        return view('user.profile', compact('user'));
+    }
 }

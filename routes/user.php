@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth:user', 'activated']], function () {
     Route::get('/reports', 'User\UserController@showReportsPage')->name('reports');
     Route::get('/customers', 'User\UserController@showCustomersPage')->name('customers');
     Route::get('/settings', 'User\UserController@showSettingsPage')->name('settings');
+    Route::get('/profile', 'User\UserController@showProfilePage')->name('profile');
 
     Route::resource('customer', 'User\CustomerController')->except(['index']);
 });

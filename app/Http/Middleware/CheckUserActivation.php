@@ -15,6 +15,11 @@ class CheckUserActivation
      */
     public function handle($request, Closure $next)
     {
+        if ($request->route()->getName() === 'user.profile')
+        {
+            return $next($request);
+        }
+
         if(!auth()->guard('user')->user()->activation)
         {
             return redirect()->route('user.home');
