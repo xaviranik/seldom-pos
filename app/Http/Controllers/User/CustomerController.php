@@ -55,7 +55,7 @@ class CustomerController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        Session::flash('success', 'User added successfully!');
+        Session::flash('success', 'Customer Added Successfully!');
 
         return redirect()->route('user.customers');
     }
@@ -107,7 +107,7 @@ class CustomerController extends Controller
         $customer->address = $request->address;
         $customer->save();
 
-        Session::flash('success', 'User Updated!');
+        Session::flash('success', 'Customer Updated Successfully!');
         return redirect()->route('user.customers');
     }
 
@@ -121,6 +121,7 @@ class CustomerController extends Controller
     {
         $this->authorize('manage', $customer);
         $customer->delete();
+        Session::flash('success', 'Customer Deleted Successfully!');
         return redirect()->route('user.customers');
     }
 }

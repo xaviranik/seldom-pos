@@ -38,6 +38,15 @@
     <!-- REQUIRED SCRIPTS -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/plugins/dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/toastr.min.js') }}"></script>
+    
+    <script>
+        toastr.options.toastClass = 'toastr';
+        toastr.options.progressBar = true;
+        @if (Session::has('success'))
+            toastr.success('{{ Session::get('success') }}');
+        @endif
+    </script>
     
     @yield('datatable')
 </body>
