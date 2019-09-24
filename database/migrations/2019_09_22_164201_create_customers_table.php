@@ -21,6 +21,8 @@ class CreateCustomersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
