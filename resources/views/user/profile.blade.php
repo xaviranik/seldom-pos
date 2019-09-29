@@ -28,8 +28,8 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" src="{{ asset('static/avatar/user-avatar.svg') }}"
-                                alt="User profile picture">
+                            <img class="profile-user-img img-fluid img-circle"
+                                src="{{ asset('static/avatar/user-avatar.svg') }}" alt="User profile picture">
                         </div>
 
                         <h3 class="profile-username text-center">{{ $user->name }}</h3>
@@ -56,111 +56,112 @@
                 <div class="card">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#activity"
-                                    data-toggle="tab">Shop Profile</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Personal Profile</a>
+                            <li class="nav-item"><a class="nav-link active" href="#shop-profile" data-toggle="tab">Shop
+                                    Profile</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="#user-profile" data-toggle="tab">Personal
+                                    Profile</a> --}}
                             </li>
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="active tab-pane" id="activity">
-                                <form class="form-horizontal">
+                            <div class="active tab-pane" id="shop-profile">
+                                <form class="form-horizontal" action="{{ route('user.profile.update', ['id' => $user->id]) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
                                     <div class="form-group">
-                                        <label for="inputName" class="col-sm-2 control-label">Name</label>
+                                        <label for="name">Shop Name</label>
+                                        <input id="name" type="text"
+                                            class="form-control @error('name') is-invalid @enderror" name="name"
+                                            value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Shop Name">
 
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                        </div>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="inputEmail"
-                                                placeholder="Email">
-                                        </div>
-                                    </div>
                                     <div class="form-group">
-                                        <label for="inputName2" class="col-sm-2 control-label">Name</label>
+                                        <label for="phone">Shop Phone Number</label>
+                                        <input id="phone" type="text"
+                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                            value="{{ old('phone') }}" required autocomplete="phone" placeholder="Phone Number">
 
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                                        </div>
+                                        @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
+                                        <label for="address">Shop Address</label>
+                                        <input id="address" type="text"
+                                            class="form-control @error('address') is-invalid @enderror" name="address"
+                                            value="{{ old('address') }}" required autocomplete="address" placeholder="Full Addresss">
+                                        @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Shop Email (If Any)</label>
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
 
-                                        <div class="col-sm-12">
-                                            <textarea class="form-control" id="inputExperience"
-                                                placeholder="Experience"></textarea>
-                                        </div>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-12">
-                                            <button type="submit" class="btn btn-danger">Submit</button>
-                                        </div>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3 mt-3">Update Shop Profile</button>
                                 </form>
                             </div>
 
-                            <div class="tab-pane" id="settings">
+                            {{-- <div class="tab-pane" id="user-profile">
                                 <form class="form-horizontal">
                                     <div class="form-group">
-                                        <label for="inputName" class="col-sm-2 control-label">Name</label>
+                                        <label for="name">Name</label>
+                                        <input id="name" type="text"
+                                            class="form-control @error('name') is-invalid @enderror" name="name"
+                                            value="" required autocomplete="name" autofocus placeholder="Shop Name">
 
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                        </div>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="inputEmail"
-                                                placeholder="Email">
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="address">Shop Address</label>
+                                        <input id="address" type="text"
+                                            class="form-control @error('address') is-invalid @enderror" name="address"
+                                            value="" required autocomplete="address" placeholder="Full Addresss">
+                                        @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputName2" class="col-sm-2 control-label">Name</label>
+                                        <label for="email">Shop Email (If Any)</label>
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="" required autocomplete="email" placeholder="Email">
 
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                                        </div>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                                        <div class="col-sm-12">
-                                            <textarea class="form-control" id="inputExperience"
-                                                placeholder="Experience"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="inputSkills"
-                                                placeholder="Skills">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-12">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> I agree to the <a href="#">terms and
-                                                        conditions</a>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-12">
-                                            <button type="submit" class="btn btn-danger">Submit</button>
-                                        </div>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Update Profile</button>
                                 </form>
-                            </div>
+                            </div> --}}
                             <!-- /.tab-pane -->
                         </div>
                         <!-- /.tab-content -->

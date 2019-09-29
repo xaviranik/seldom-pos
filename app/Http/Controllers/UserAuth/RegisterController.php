@@ -5,6 +5,7 @@ namespace App\Http\Controllers\UserAuth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use App\Shop;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,12 +65,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'type' => $data['type'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $user->shop()->save(new Shop);
+        return $user;
     }
 
     /**

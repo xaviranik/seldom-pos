@@ -15,7 +15,7 @@ class CheckUserActivation
      */
     public function handle($request, Closure $next)
     {
-        if ($request->route()->getName() === 'user.profile')
+        if (in_array($request->route()->getName(), ['user.profile', 'user.profile.update']))
         {
             return $next($request);
         }
