@@ -18,5 +18,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
 
     Route::put('/user/profile/{shop}', 'User\ShopController@updateShopProfile')->name('user_profile.update');
     Route::delete('/user/{user}', 'Admin\ManageUserController@userDestroy')->name('user.destroy');
+    Route::put('/user/activate/{user}', 'Admin\ManageUserController@userActivate')->name('user.activate');
+    Route::put('/user/deactivate/{user}', 'Admin\ManageUserController@userDeactivate')->name('user.deactivate');
 });
 

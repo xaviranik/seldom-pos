@@ -49,9 +49,17 @@
                         </ul>
 
                         @if ($user->activation)
-                            <a href="#" class="btn btn-danger btn-block"><b>Deactivate User</b></a>
+                            <form action="{{ route('admin.user.deactivate', ['id' => $user->id]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger btn-block"><b>Deactivate User</b></button>
+                            </form> 
                         @else
-                            <a href="#" class="btn btn-success btn-block"><b>Activate User</b></a>                            
+                            <form action="{{ route('admin.user.activate', ['id' => $user->id]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-success btn-block"><b>Activate User</b></button>
+                            </form>                            
                         @endif
                     </div>
                     <!-- /.card-body -->
