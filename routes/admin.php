@@ -12,10 +12,11 @@ Route::get('/home', function () {
 
 Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/home', 'Admin\AdminController@showAdminDashboardPage')->name('home');
-    Route::get('/manage-users', 'Admin\AdminController@showManageUsersPage')->name('manage_users');
-    Route::get('/view-users/{user}', 'Admin\AdminController@viewUserPage')->name('view_user');
 
-    Route::put('/profile/{shop}', 'User\ShopController@updateShopProfile')->name('user_profile.update');
-    Route::delete('/user/{user}', 'Admin\AdminController@userDestroy')->name('user.destroy');
+    Route::get('/manage-users', 'Admin\ManageUserController@index')->name('manage_users');
+    Route::get('/view-users/{user}', 'Admin\ManageUserController@userView')->name('view_user');
+
+    Route::put('/user/profile/{shop}', 'User\ShopController@updateShopProfile')->name('user_profile.update');
+    Route::delete('/user/{user}', 'Admin\ManageUserController@userDestroy')->name('user.destroy');
 });
 
