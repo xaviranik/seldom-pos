@@ -22,6 +22,6 @@ Route::group(['middleware' => ['auth:user', 'activated']], function () {
     
     //Activation Excluded Routes
     Route::get('/profile', 'User\UserController@showProfilePage')->name('profile');
-    Route::put('/profile/{user}', 'User\ShopController@updateShopProfile')->name('profile.update');
+    Route::put('/profile/{shop}', 'User\ShopController@updateShopProfile')->name('profile.update');
 
 });

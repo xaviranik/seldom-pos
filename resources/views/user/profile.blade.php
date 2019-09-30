@@ -66,14 +66,14 @@
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="active tab-pane" id="shop-profile">
-                                <form class="form-horizontal" action="{{ route('user.profile.update', ['id' => $user->id]) }}" method="POST">
+                                <form class="form-horizontal" action="{{ route('user.profile.update', ['id' => $user->shop->id]) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
                                         <label for="name">Shop Name</label>
                                         <input id="name" type="text"
                                             class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Shop Name">
+                                            value="{{ $shop->name }}" required autocomplete="name" autofocus placeholder="Shop Name">
 
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                                         <label for="phone">Shop Phone Number</label>
                                         <input id="phone" type="text"
                                             class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                            value="{{ old('phone') }}" required autocomplete="phone" placeholder="Phone Number">
+                                            value="{{ $shop->phone }}" required autocomplete="phone" placeholder="Phone Number">
 
                                         @error('phone')
                                         <span class="invalid-feedback" role="alert">
@@ -98,7 +98,7 @@
                                         <label for="address">Shop Address</label>
                                         <input id="address" type="text"
                                             class="form-control @error('address') is-invalid @enderror" name="address"
-                                            value="{{ old('address') }}" required autocomplete="address" placeholder="Full Addresss">
+                                            value="{{ $shop->address }}" required autocomplete="address" placeholder="Full Addresss">
                                         @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -109,7 +109,7 @@
                                         <label for="email">Shop Email (If Any)</label>
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                                            value="{{ $shop->email }}" autocomplete="email" placeholder="Email">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">

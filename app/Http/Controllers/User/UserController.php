@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Shop;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -49,6 +50,7 @@ class UserController extends Controller
     public function showProfilePage()
     {
         $user = auth()->guard('user')->user();
-        return view('user.profile', compact('user'));
+        $shop = Shop::where('user_id', $user->id)->first();
+        return view('user.profile', compact('user', 'shop'));
     }
 }

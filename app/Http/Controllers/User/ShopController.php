@@ -5,11 +5,23 @@ namespace App\Http\Controllers\User;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use App\Shop;
 
 class ShopController extends Controller
 {
-    public function updateShopProfile(User $user, Request $request)
+    public function updateShopProfile(Request $request, Shop $shop)
     {
-        dd($request->all());
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'nullable|email',
+            'phone' => 'required|digits:11',
+            'address' => 'required',
+        ]);
+
+        $shop->update($request->all());
+
+        Session::flash('success', 'Shop Updated Successfully!');
+        return redirect()->route('user.profile');
     }
 }
