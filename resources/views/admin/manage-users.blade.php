@@ -58,33 +58,60 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <table id="datatable" class="table table-bordered table-striped">
+                            <table id="datatable" class="table table-bordered table-striped table-responsive-sm">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
                                         <th class="w-25">Shop</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($all_users as $user)
                                     <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 4.0
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->shop->name }}</td>
+                                        <td>{{ $user->shop->phone }}</td>
+                                        <td>
+                                            @if ($user->activation)
+                                                <span class="badge badge-success">Activated</span>
+                                            @else
+                                                <span class="badge badge-danger">Deactivated</span>
+                                            @endif
                                         </td>
-                                        <td>Win 95+</td>
-                                        <td> 4</td>
-                                        <td>X</td>
+                                        <td>
+                                            <form class="form-inline"
+                                                action="#"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="btn-group">
+                                                    <a href="#"
+                                                        class="btn btn-outline-success btn-sm"><i class="fas fa-eye"></i></a>
+                                                    <a href="#"
+                                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i></a>
+
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm"><i
+                                                            class="fas fa-trash"></i></button>
+                                                </div>
+                                            </form>
+                                        </td>
                                     </tr>
+                                    @empty
+
+                                    @endforelse
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
                                         <th>Shop</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
