@@ -61,6 +61,7 @@
                             <table id="datatable" class="table table-bordered table-striped table-responsive-sm">
                                 <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th class="w-25">Shop</th>
@@ -72,6 +73,7 @@
                                 <tbody>
                                     @forelse ($all_users as $user)
                                     <tr>
+                                        <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->shop->name }}</td>
@@ -105,6 +107,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Shop</th>

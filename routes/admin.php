@@ -11,6 +11,7 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('/home', 'Admin\AdminController@showAdminDashboardPage')->name('home');
     Route::get('/manage-users', 'Admin\AdminController@showManageUsersPage')->name('manage_users');
     Route::get('/view-users/{user}', 'Admin\AdminController@viewUserPage')->name('view_user');
 
