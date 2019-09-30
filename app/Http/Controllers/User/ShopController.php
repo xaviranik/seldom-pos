@@ -12,16 +12,16 @@ class ShopController extends Controller
 {
     public function updateShopProfile(Request $request, Shop $shop)
     {
-        $this->validate($request, [
+        $data = $this->validate($request, [
             'name' => 'required',
             'email' => 'nullable|email',
             'phone' => 'required|digits:11',
             'address' => 'required',
         ]);
 
-        $shop->update($request->all());
+        $shop->update($data);
 
         Session::flash('success', 'Shop Updated Successfully!');
-        return redirect()->route('user.profile');
+        return redirect()->back();
     }
 }

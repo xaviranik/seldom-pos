@@ -85,15 +85,13 @@
                                         </td>
                                         <td>
                                             <form class="form-inline"
-                                                action="#"
+                                                action="{{ route('admin.user.destroy', ['id' => $user->id]) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <div class="btn-group">
-                                                    <a href="#"
-                                                        class="btn btn-outline-success btn-sm"><i class="fas fa-eye"></i></a>
-                                                    <a href="#"
-                                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                                    <a href="{{ route('admin.view_user', ['id' => $user->id]) }}"
+                                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></a>
 
                                                     <button type="submit" class="btn btn-outline-danger btn-sm"><i
                                                             class="fas fa-trash"></i></button>
