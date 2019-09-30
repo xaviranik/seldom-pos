@@ -12,7 +12,9 @@ class ManageUserController extends Controller
     public function index()
     {
         $all_users = User::all();
-        return view('admin.manage-users', compact('all_users'));
+        $new_users = User::where('activation', 0)->get();
+        $activated_users = User::where('activation', 1)->get();
+        return view('admin.manage-users', compact('all_users', 'new_users', 'activated_users'));
     }
 
     public function userView(User $user)

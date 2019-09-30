@@ -26,30 +26,30 @@
         <div class="card-body p-0">
             <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill"
-                        href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home"
+                    <a class="nav-link active" id="custom-content-below-all-users-tab" data-toggle="pill"
+                        href="#custom-content-below-all-users" role="tab" aria-controls="custom-content-below-all-users"
                         aria-selected="true">
                         <h5>All Users</h5>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill"
-                        href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile"
+                    <a class="nav-link" id="custom-content-below-incoming-users-tab" data-toggle="pill"
+                        href="#custom-content-below-incoming-users" role="tab" aria-controls="custom-content-below-incoming-users"
                         aria-selected="false">
                         <h5>Incoming Users</h5>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill"
-                        href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile"
+                    <a class="nav-link" id="custom-content-below-accepted-users-tab" data-toggle="pill"
+                        href="#custom-content-below-activated-users" role="tab" aria-controls="custom-content-below-activated-users"
                         aria-selected="false">
                         <h5>Accepted Users</h5>
                     </a>
                 </li>
             </ul>
             <div class="tab-content" id="custom-content-below-tabContent">
-                <div class="tab-pane fade show active" id="custom-content-below-home" role="tabpanel"
-                    aria-labelledby="custom-content-below-home-tab">
+                <div class="tab-pane fade show active" id="custom-content-below-all-users" role="tabpanel"
+                    aria-labelledby="custom-content-below-all-users-tab">
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-header">
@@ -121,37 +121,144 @@
                         <!-- /.card-body -->
                     </div>
                 </div>
-                <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel"
-                    aria-labelledby="custom-content-below-profile-tab">
+                <div class="tab-pane fade" id="custom-content-below-incoming-users" role="tabpanel"
+                    aria-labelledby="custom-content-below-incoming-users-tab">
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
-                                <h5>Manage All Categories</h5>
-                                <a href="#" class="btn btn-primary">Add Category</a>
+                                <h5>Incoming Users</h5>
                             </div>
                         </div>
                         <div class="card-body">
-                            <table id="datatable2" class="table table-bordered table-striped">
+                            <table id="datatable" class="table table-bordered table-striped table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        <th class="w-75">Title</th>
-                                        <th class="w-25">Action</th>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th class="w-25">Shop</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($new_users as $user)
                                     <tr>
-                                        <td>Grocery</td>
-                                        <td>X</td>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->shop->name }}</td>
+                                        <td>{{ $user->shop->phone }}</td>
+                                        <td>
+                                            @if ($user->activation)
+                                                <span class="badge badge-success">Activated</span>
+                                            @else
+                                                <span class="badge badge-danger">Deactivated</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <form class="form-inline"
+                                                action="{{ route('admin.user.destroy', ['id' => $user->id]) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="btn-group">
+                                                    <a href="{{ route('admin.view_user', ['id' => $user->id]) }}"
+                                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></a>
+
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm"><i
+                                                            class="fas fa-trash"></i></button>
+                                                </div>
+                                            </form>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Dry Fruits</td>
-                                        <td>X</td>
-                                    </tr>
+                                    @empty
+
+                                    @endforelse
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Title</th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Shop</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="custom-content-below-activated-users" role="tabpanel"
+                    aria-labelledby="custom-content-below-activated-users-tab">
+                    <div class="card mb-0">
+                        <!-- /.card-header -->
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <h5>Incoming Users</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="datatable" class="table table-bordered table-striped table-responsive-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th class="w-25">Shop</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($activated_users as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->shop->name }}</td>
+                                        <td>{{ $user->shop->phone }}</td>
+                                        <td>
+                                            @if ($user->activation)
+                                                <span class="badge badge-success">Activated</span>
+                                            @else
+                                                <span class="badge badge-danger">Deactivated</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <form class="form-inline"
+                                                action="{{ route('admin.user.destroy', ['id' => $user->id]) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="btn-group">
+                                                    <a href="{{ route('admin.view_user', ['id' => $user->id]) }}"
+                                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></a>
+
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm"><i
+                                                            class="fas fa-trash"></i></button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @empty
+
+                                    @endforelse
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Shop</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
