@@ -2,9 +2,9 @@
 
 @section('content')
 <!-- Content Header (Page header) -->
+@if (!auth()->guard('user')->user()->activation)
 <div class="content-header">
     <div class="container-fluid">
-        @if (!auth()->guard('user')->user()->activation)
         <div class="row">
             <div class="col-md-12">
                 <div class="alert alert-info" role="alert">
@@ -16,7 +16,11 @@
                 </div>
             </div>
         </div>
-        @endif
+    </div>
+</div>
+@else
+<div class="content-header">
+    <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">Dashboard</h1>
@@ -83,7 +87,7 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-dolly"></i></span>
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-dolly"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">All Sales</span>
@@ -204,4 +208,6 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+@endif
+
 @endsection

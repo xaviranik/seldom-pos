@@ -30,7 +30,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Today's Users</span>
                 <span class="info-box-number">
-                  {{ $todays_users }}
+                  <h3>{{ $todays_users }}</h3>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -44,7 +44,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Last 30 Day's Users</span>
-                <span class="info-box-number">{{ $last_30_days_users }}</span>
+                <span class="info-box-number"><h3>{{ $last_30_days_users }}</h3></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -61,7 +61,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Retailers</span>
-                <span class="info-box-number">{{ $retailers }}</span>
+                <span class="info-box-number"><h3>{{ $retailers }}</h3></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -74,7 +74,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Wholesalers</span>
-                <span class="info-box-number">{{ $wholesalers }}</span>
+                <span class="info-box-number"><h3>{{ $wholesalers }}</h3></span>
               </div>
               <!-- /.info-box-content -->
             </div>
