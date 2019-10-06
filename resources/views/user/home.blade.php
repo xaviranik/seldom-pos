@@ -47,7 +47,7 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Today's Sale</span>
                         <span class="info-box-number">
-                            10
+                            <h3>10</h3>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -61,7 +61,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Last 15 days Sale</span>
-                        <span class="info-box-number">410</span>
+                        <span class="info-box-number"><h3>410</h3></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -78,7 +78,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Last 30 days Sale</span>
-                        <span class="info-box-number">760</span>
+                        <span class="info-box-number"><h3>760</h3></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -91,7 +91,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">All Sales</span>
-                        <span class="info-box-number">2,000</span>
+                        <span class="info-box-number"><h3>2,000</h3></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -153,7 +153,7 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Today's Profit</span>
                         <span class="info-box-number">
-                            &#2547;152
+                            <h3>&#2547;152</h3>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -167,7 +167,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Last 15 Days Profit</span>
-                        <span class="info-box-number">&#2547;8521</span>
+                        <span class="info-box-number"><h3>&#2547;8521</h3></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -184,7 +184,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Last 30 day's Profit</span>
-                        <span class="info-box-number">&#2547;18416</span>
+                        <span class="info-box-number"><h3>&#2547;18416</h3></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -197,7 +197,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Total Profit</span>
-                        <span class="info-box-number">&#2547;281416</span>
+                        <span class="info-box-number"><h3>&#2547;281416</h3></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>

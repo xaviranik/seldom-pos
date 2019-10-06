@@ -131,7 +131,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <table id="datatable" class="table table-bordered table-striped table-responsive-sm">
+                            <table id="datatable2" class="table table-bordered table-striped table-responsive-sm">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -204,7 +204,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <table id="datatable" class="table table-bordered table-striped table-responsive-sm">
+                            <table id="datatable3" class="table table-bordered table-striped table-responsive-sm">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -280,6 +280,7 @@
     $(function () {
         $("#datatable").DataTable();
         $("#datatable2").DataTable();
+        $("#datatable3").DataTable();
     });
 
 </script>

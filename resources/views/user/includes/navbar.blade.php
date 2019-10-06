@@ -18,14 +18,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> Settings
+                    <i class="fas fa-cogs mr-2"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> Contact
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a href="{{ route('user.profile') }}" class="dropdown-item">
                     <i class="fas fa-user mr-2"></i> Profile
                 </a>
                 <div class="dropdown-divider"></div>
