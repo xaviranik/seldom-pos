@@ -88,7 +88,7 @@
                 </li>
                 @else
                 <li class="nav-item">
-                    <a href="#"
+                    <a href="{{ route('user.home') }}"
                         class="nav-link {{ Route::currentRouteNamed('user.home') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>

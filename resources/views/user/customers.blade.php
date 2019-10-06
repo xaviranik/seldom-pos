@@ -71,9 +71,9 @@
                                                 @method('DELETE')
                                                 <div class="btn-group">
                                                     <a href="{{ route('user.customer.edit', ['id' => $customer->id]) }}"
-                                                        class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                                        class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i></a>
 
-                                                    <button type="submit" class="btn btn-outline-danger"><i
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm"><i
                                                             class="fas fa-trash"></i></button>
                                                 </div>
                                             </form>

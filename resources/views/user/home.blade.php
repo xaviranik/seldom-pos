@@ -2,6 +2,23 @@
 
 @section('content')
 <!-- Content Header (Page header) -->
+@if (!auth()->guard('user')->user()->activation)
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info" role="alert">
+                    Please wait while your account is reviewed. The full functionality will be opened when you are
+                    verified.
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    If you have not completed your profile, please <a href="{{ route('user.profile') }}">Click here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@else
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -22,176 +39,175 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-lg-4 col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>&#2547;150.00</h3>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-dolly"></i></span>
 
-                        <p>Today's Sales</p>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Today's Sale</span>
+                        <span class="info-box-number">
+                            <h3>10</h3>
+                        </span>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <!-- /.info-box-content -->
                 </div>
+                <!-- /.info-box -->
             </div>
-            <!-- ./col -->
-            <div class="col-lg-4 col-6">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>&#2547;8452.00</h3>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-dolly"></i></span>
 
-                        <p>Last 30 Days Sales</p>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Last 15 days Sale</span>
+                        <span class="info-box-number"><h3>410</h3></span>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <!-- /.info-box-content -->
                 </div>
+                <!-- /.info-box -->
             </div>
-            <!-- ./col -->
-            <div class="col-lg-4 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>&#2547;61520.00</h3>
+            <!-- /.col -->
 
-                        <p>Total Sales</p>
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-dolly"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Last 30 days Sale</span>
+                        <span class="info-box-number"><h3>760</h3></span>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <!-- /.info-box-content -->
                 </div>
+                <!-- /.info-box -->
             </div>
-            <!-- ./col -->
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-dolly"></i></span>
 
-            <!-- ./col -->
+                    <div class="info-box-content">
+                        <span class="info-box-text">All Sales</span>
+                        <span class="info-box-number"><h3>2,000</h3></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
 
-        <!-- Left col -->
-        <section>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Bar Chart</h3>
 
-
-
-
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- AREA CHART -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Area Chart</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                    class="fas fa-times"></i></button>
                         </div>
-                        <div class="card-body">
-                            <div class="chart">
-                                <canvas id="areaChart" style="height:250px; min-height:250px"></canvas>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
                     </div>
-                </div>
-
-                <div class="col-md-6">
-
-                    <!-- BAR CHART -->
-                    <div class="card card-success">
-                        <div class="card-header">
-                            <h3 class="card-title">Bar Chart</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="barChart" style="height:250px; min-height:250px"></canvas>
                         </div>
-                        <div class="card-body">
-                            <div class="chart">
-                                <canvas id="barChart" style="height:230px; min-height:230px"></canvas>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
-                    <!-- /.col (RIGHT) -->
                 </div>
             </div>
 
-        </section>
+            <div class="col-md-6">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Area Chart</h3>
 
-
-        <!-- bottom div -->
-
-        <section>
-
-            <div class="row">
-                <div class="col-lg-4 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>&#2547;150.00</h3>
-
-                            <p>Today's Profit</p>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                    class="fas fa-times"></i></button>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-4 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3>&#2547;91882.90</h3>
-
-                            <p>Last 30 Days Profit</p>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="areaChart" style="height:250px; min-height:250px"></canvas>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
+                    <!-- /.card-body -->
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-4 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>&#2547;6,51,520.00</h3>
-
-                            <p>Total Profit</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-
-                <!-- ./col -->
             </div>
-        </section>
+        </div>
 
-        <!-- bottom div ends -->
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-funnel-dollar"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Today's Profit</span>
+                        <span class="info-box-number">
+                            <h3>&#2547;152</h3>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-funnel-dollar"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Last 15 Days Profit</span>
+                        <span class="info-box-number"><h3>&#2547;8521</h3></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-funnel-dollar"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Last 30 day's Profit</span>
+                        <span class="info-box-number"><h3>&#2547;18416</h3></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-funnel-dollar"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Profit</span>
+                        <span class="info-box-number"><h3>&#2547;281416</h3></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+@endif
+
 @endsection
